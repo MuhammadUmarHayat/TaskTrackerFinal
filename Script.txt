@@ -1,0 +1,50 @@
+﻿
+CREATE TABLE [dbo].[TaskList] (
+    [Id]             INT            IDENTITY (1, 1) NOT NULL,
+    [userid]         NVARCHAR (50)  NULL,
+    [complaintID]    NVARCHAR (50)  NULL,
+    [Details]        NVARCHAR (MAX) NULL,
+    [Priority]       NVARCHAR (50)  NULL,
+    [Status]         NVARCHAR (50)  NULL,
+    [AssigningDate]  DATE           NULL,
+    [CompletionDate] DATE           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[User_Suggestions] (
+    [Id]      INT            NOT NULL IDENTITY,
+    [UserID]  NVARCHAR (50)  NULL,
+    [Title]   NVARCHAR (50)  NULL,
+    [Message] NVARCHAR (MAX) NULL,
+    [Date]    DATE           NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Users] (
+    [cnic]             NVARCHAR (50)  NOT NULL,
+    [name]             NVARCHAR (50)  NULL,
+    [Password]         NVARCHAR (50)  NULL,
+    [Email]            NVARCHAR (50)  NULL,
+    [MobileNo]         NVARCHAR (50)  NULL,
+    [ParmanentAddress] NVARCHAR (MAX) NULL,
+    [UserType]         NVARCHAR (50)  NULL,
+    [Photo]            NVARCHAR (50)  NULL,
+    [Status]           NVARCHAR (50)  NULL,
+    [ResidantialAdd]   NVARCHAR (50)  NULL,
+    [Gender]           NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([cnic] ASC)
+);
+
+CREATE TABLE [dbo].[Users_Complains] (
+    [ComplainID] INT            IDENTITY (1, 1) NOT NULL,
+    [UserID]     NVARCHAR (50)  NULL,
+    [Department] NVARCHAR (MAX) NULL,
+    [Details]    NVARCHAR (50)  NULL,
+    [Date]       DATE           NULL,
+    [PriorityNo] NVARCHAR (50)  NULL,
+    [Status]     NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([ComplainID] ASC)
+);
+
